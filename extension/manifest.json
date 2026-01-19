@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "MetaTrader Site Reader",
+  "version": "0.1.0",
+  "description": "Reads the current page and forwards data to a local MetaTrader bridge.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Send page to MetaTrader",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
